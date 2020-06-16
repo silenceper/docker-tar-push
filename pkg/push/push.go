@@ -93,7 +93,7 @@ func (imagePush *ImagePush) Push() {
 	for _, manifestObj := range manifestObjs {
 		log.Infof("start push image archive %s", imagePush.archivePath)
 		for _, repo := range manifestObj.RepoTags {
-			repo = "test-tar:test-tag"
+			//repo = "test-tar:test-tag"
 			image, tag := util.ParseImageAndTag(repo)
 			log.Debugf("image=%s,tag=%s", image, tag)
 
