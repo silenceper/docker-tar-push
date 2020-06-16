@@ -10,7 +10,6 @@ var (
 	registryURL   string
 	username      string
 	password      string
-	repo          string
 	skipSSLVerify bool
 	logLevel      int
 
@@ -21,8 +20,7 @@ var (
 		Args:  cobra.ExactArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {
 			log.SetLogLevel(log.Level(logLevel))
-
-			imagePush := push.NewImagePush(args[0], registryURL, username, password, repo, skipSSLVerify)
+			imagePush := push.NewImagePush(args[0], registryURL, username, password, skipSSLVerify)
 			imagePush.Push()
 		},
 	}
@@ -32,7 +30,6 @@ func main() {
 	rootCmd.Flags().StringVar(&registryURL, "registry", "", "registry url")
 	rootCmd.Flags().StringVar(&username, "username", "", "registry auth username")
 	rootCmd.Flags().StringVar(&password, "password", "", "registry auth password")
-	rootCmd.Flags().StringVar(&repo, "repo", "", "docker image repository")
 	rootCmd.Flags().BoolVar(&skipSSLVerify, "skip-ssl-verify", false, "skip ssl verify")
 	rootCmd.Flags().IntVar(&logLevel, "log-level", log.LevelInfo, "log-level, 0:Fatal,1:Error,2:Warn,3:Info,4:Debug")
 
