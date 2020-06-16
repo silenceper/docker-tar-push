@@ -14,7 +14,6 @@ Flags:
       --log-level int     log-level, 0:Fatal,1:Error,2:Warn,3:Info,4:Debug (default 3)
       --password string   registry auth password
       --registry string   registry url
-      --repo string       docker image repository
       --skip-ssl-verify   skip ssl verify
       --username string   registry auth username
 ```
